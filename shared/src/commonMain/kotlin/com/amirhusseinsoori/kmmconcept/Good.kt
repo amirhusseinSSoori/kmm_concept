@@ -1,7 +1,16 @@
 package com.amirhusseinsoori.kmmconcept
 
 class SimpleCollection {
-    fun str(): List<String> {
-        return listOf<String>("java","swift","php","ruby","python","C","C#","Rust")
+    private var list= ArrayList<String>()
+    fun showList(): List<String> {
+        return  list
+    }
+
+
+    fun addData(input:String){
+        list.add(input)
+    }
+    fun removeData(input:String){
+        list.remove(input)
     }
 }

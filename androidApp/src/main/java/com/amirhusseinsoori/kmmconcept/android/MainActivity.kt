@@ -26,7 +26,7 @@ fun greet(): String {
 }
 
 fun list(): List<String> {
-    return SimpleCollection().str()
+    return SimpleCollection().showList()
 }
 
 class MainActivity : AppCompatActivity() {
