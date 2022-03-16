@@ -2,20 +2,21 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-    @State var simpleCollection = SimpleCollection()
+    @State var list = SimpleCollection().showList()
     @State var value: String = ""
    
 var body: some View  {
-    let getlist = simpleCollection.showList()
+ 
         Button("add"){
-            simpleCollection.addData(input:value)
+            list.append(value)
             value = ""
         }
         TextField("Enter AnyThing...", text: $value).multilineTextAlignment(.center).lineLimit(1)
     
-    List(getlist,id: \.self) {data in
-        Text(data).frame(maxWidth: .infinity, alignment: .center).onTapGesture {
-            simpleCollection.removeData(input:data)
+    List(list.indices,id: \.self) {index in
+        Text(list[index]).frame(maxWidth: .infinity, alignment: .center).onTapGesture {
+            list.remove(at: index)
+            
                  }
                    }
                
